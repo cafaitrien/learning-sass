@@ -1,9 +1,22 @@
+$accent: #3A612D;
+$highlight: #D2F0FA;
+$brand: #2D5461;
+$base-font: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+
+@mixin card($bg-color){
+  box-shadow: gray 3px 3px 8px;
+  background-color: $bg-color;
+}
+
+article:first-of-type{
+  @include card($highlight);
+}
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #2D5461;
-  font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;;
+  color: $brand;
+  font-family: $base-font;
 }
 
 .cta-container {
@@ -16,32 +29,32 @@ body {
 }
 
 .cta {
+  @include card (#C0FABE);
   text-align: center;
   display: flex;
   flex-flow: column nowrap;
   padding: 1rem;
   justify-content: center;
   align-items: space-around;
-  box-shadow: gray 3px 3px 8px;
-  background-color: #C0FABE;
   margin: 1rem;
-}
-.cta a{
-  text-decoration: none;
-  color: #2D5461;
-}
-.cta img {
-  max-width: 300px;
+
+  a{
+    text-decoration: none;
+    color: $brand;
+  }
+  img {
+    max-width: 300px;
+  }
 }
 
 a.goth-like{
-  color:#3A612D;
-}
-a.goth-like:visited{
-  color: #D2F0FA;
-}
-a.goth-like:hover, a.goth-like:active, a.goth-like:focus{
-  text-shadow: 2px 3px grey;
+  color: $accent;
+  &:visited{
+    color: $highlight;
+  }
+  &:hover, &:active, &:focus{
+    text-shadow: 2px 3px grey;
+  }
 }
 .impact{
   text-align: center;
@@ -51,15 +64,15 @@ p.storybook::first-letter{
   font-size: 200%;
 }
 .highlight-background{
-  background-color: #D2F0FA;
+  background-color: $highlight;
 }
 footer {
-  background-color: #D2F0FA;
+  background-color: $highlight;
   padding: 1rem;
 }
 
 input[type="submit"]{
   border-radius: .5rem;
   color: white;
-  background-color: #3A612D;
+  background-color: $accent;
 }
